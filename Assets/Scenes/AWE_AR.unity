@@ -310,9 +310,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4342d3116825a854b846c1c54abb1175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serverURL: https://s3.amazonaws.com/s3deploy.test/AssetBundles
-  _projectName: Project1
-  _currentRequests: []
+  _dbAddress: http://10.0.1.32:2222/
+  _bucket: s3deploy.test
+  _latestBundle:
+    data:
+      id: 0
+      key: 
+      bundlepath: 
+  latestId: 0
 --- !u!20 &896679035 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20155940112608238, guid: c10877f7cd5764de18d46d7b777d1faa,
