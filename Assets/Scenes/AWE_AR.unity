@@ -310,14 +310,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4342d3116825a854b846c1c54abb1175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dbAddress: http://10.0.1.32:2222/
-  _bucket: s3deploy.test
-  _latestBundle:
-    data:
-      id: 0
-      key: 
-      bundlepath: 
+  _dbAddress: 167.99.82.243
+  _port: 2222
+  _s3Bucket: s3deploy.test
+  _pollForAssetChanges: 1
+  PollDelay: 10
   latestId: 0
+  _bundles: []
 --- !u!20 &896679035 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20155940112608238, guid: c10877f7cd5764de18d46d7b777d1faa,
