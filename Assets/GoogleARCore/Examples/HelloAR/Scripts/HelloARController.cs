@@ -23,6 +23,8 @@ namespace GoogleARCore.Examples.HelloAR
     using System.Collections.Generic;
     using GoogleARCore;
     using GoogleARCore.Examples.Common;
+    using SB.Objects;
+    using SB.Objects.Model;
     using UnityEngine;
 
 #if UNITY_EDITOR
@@ -49,6 +51,8 @@ namespace GoogleARCore.Examples.HelloAR
         /// A model to place when a raycast from a user touch hits a plane.
         /// </summary>
         public GameObject AndyAndroidPrefab;
+
+        public BundleData CurrentDataModel;
 
         /// <summary>
         /// A gameobject parenting UI for displaying the "searching for planes" snackbar.
@@ -116,8 +120,15 @@ namespace GoogleARCore.Examples.HelloAR
                 }
                 else
                 {
+                    if (CurrentDataModel.bundlepath == "")
+                        return;
+
                     // Instantiate Andy model at the hit pose.
                     var andyObject = Instantiate(AndyAndroidPrefab, hit.Pose.position, hit.Pose.rotation);
+
+                    var asset = andyObject.GetComponent<DynamicAsset>();
+                    asset.DataModel = CurrentDataModel;
+                    asset.Instantiate();
 
                     // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
                     andyObject.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
@@ -130,6 +141,11 @@ namespace GoogleARCore.Examples.HelloAR
                     andyObject.transform.parent = anchor.transform;
                 }
             }
+        }
+
+        private void InstantiateAsset()
+        {
+
         }
 
         /// <summary>
