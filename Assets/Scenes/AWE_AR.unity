@@ -1076,8 +1076,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 90, y: 0}
-  m_SizeDelta: {x: -200, y: 0}
+  m_AnchoredPosition: {x: 87, y: -8.4}
+  m_SizeDelta: {x: -194, y: -16.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1363807317
 CanvasRenderer:
@@ -1106,7 +1106,6 @@ MonoBehaviour:
   ListRoot: {fileID: 794431233}
   _listItemPrefab: {fileID: 1825278145175816, guid: 9b922c14fce1e664fbdc7da9ad4b8ed3,
     type: 2}
-  Snackbar: {fileID: 1133631540}
   _children: []
 --- !u!1001 &1394164186
 Prefab:
@@ -1501,6 +1500,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114843807955463704, guid: 9b922c14fce1e664fbdc7da9ad4b8ed3,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b922c14fce1e664fbdc7da9ad4b8ed3, type: 2}
