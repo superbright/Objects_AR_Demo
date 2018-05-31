@@ -1,11 +1,14 @@
 ﻿using GoogleARCore.Examples.HelloAR;
 using SB.Objects;
+using SB.Objects.Model;
 using SB.Objects.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppController : MonoBehaviour {
+public class AppController : MonoBehaviour
+{
 
     [SerializeField]
     HelloARController _ARController;
@@ -16,11 +19,16 @@ public class AppController : MonoBehaviour {
     [SerializeField]
     ObjectsManager _objectsManager;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField] GameObject _prefabToLoad;
+    [SerializeField] BundleData _currentDataModel;
+
+    // Use this for initialization
+    void Start()
+    {
         _ARController = FindObjectOfType<HelloARController>();
         _listItemController = FindObjectOfType<ObjectsListController>();
         _objectsManager = FindObjectOfType<ObjectsManager>();
+
 
         _listItemController.ListItemSelected += (id) =>
         {
@@ -31,12 +39,18 @@ public class AppController : MonoBehaviour {
             else
                 Debug.LogError("Can't find datamodel: " + id);
         };
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+        _listItemController.ClearSceneButtonPressed += () =>
+        {
+            _ARController.DestroyAllAssets();
+        };
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void ToggleARKit()
     {

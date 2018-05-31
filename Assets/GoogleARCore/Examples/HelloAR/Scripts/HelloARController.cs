@@ -75,6 +75,10 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         private bool m_IsQuitting = false;
 
+        public List<GameObject> _anchors = new List<GameObject>();
+
+        public System.Action<RaycastHit> OnRaycastHit;
+
         /// <summary>
         /// The Unity Update() method.
         /// </summary>
@@ -139,8 +143,21 @@ namespace GoogleARCore.Examples.HelloAR
 
                     // Make Andy model a child of the anchor.
                     andyObject.transform.parent = anchor.transform;
+
+                    _anchors.Add(anchor.gameObject);
+
                 }
             }
+        }
+
+        public void DestroyAllAssets()
+        {
+            foreach (var a in _anchors)
+            {
+                Destroy(a);
+            }
+
+            _anchors.Clear();
         }
 
         private void InstantiateAsset()
